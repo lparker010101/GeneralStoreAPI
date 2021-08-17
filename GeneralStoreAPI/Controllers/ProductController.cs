@@ -44,7 +44,7 @@ namespace GeneralStoreAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/product/{sku}")]
+        [Route("api/product/{sku}")] // Like a helper method to get a specific product by sku.  
         public async Task<IHttpActionResult> Get ([FromUri] string SKU)
         {
             var product = await _context.Products.SingleOrDefaultAsync(p => p.SKU == SKU);
@@ -52,7 +52,7 @@ namespace GeneralStoreAPI.Controllers
             {
                 return NotFound();
             }
-            return Ok(product.SKU);
+            return Ok(product);
         }
     }
 }

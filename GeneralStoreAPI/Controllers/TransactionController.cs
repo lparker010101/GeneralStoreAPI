@@ -34,7 +34,7 @@ namespace GeneralStoreAPI.Controllers
             //Verify that the product is in stock
             if (product.IsInStock)
             {
-                totalCost = (decimal)(transactionObject.ItemCount * product.Cost);
+                totalCost = (decimal)(transactionObject.ItemCount * product.Cost);  //Total cost variable will be a decimal.  ItemCount is an int and cost is a double.
                 product.NumberInInventory -= transactionObject.ItemCount;
                 if (product.NumberInInventory > 0)
                 {
